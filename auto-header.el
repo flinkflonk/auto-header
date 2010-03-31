@@ -239,9 +239,8 @@ order to find whatever we are looking for in the header.")
     ("status" .      ("Status:" "Experimental, do not distribute."))
     ("update" .      ("Update count:" "0"))
     ("cvsid" .       (nil "$Id: auto-header.el,v 1.5 2002/11/26 12:53:18 dave Exp $"))
-    ("cvslog" .      (nil "$Log: auto-header.el,v $
-    ("cvslog" .      (nil "Revision 1.5  2002/11/26 12:53:18  dave
-    ("cvslog" .      (nil "readded
+    ("cvslog" .      (nil "$Log: auto-header.el,v $"))
+    ("cvslog" .      (nil "Revision 1.5  2002/11/26 12:53:18  dave"))
     ("cvslog" .      (nil ""))
     ("gpl" .         (nil "\
 This program is free software; you can redistribute it and/or
