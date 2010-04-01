@@ -1,6 +1,6 @@
 ;;; auto-header.el --- Support for automatically updated file headers.
 
-;; Copyright (C) 1996, 1998, 1999, 2000,  Espen Skoglund.
+;; Copyright (C) 1996, 1998, 1999, 2000, 2010,  Espen Skoglund.
 
 ;; Author: Espen Skoglund <esk@ira.uka.de>
 ;; Keywords: file headers
@@ -63,12 +63,14 @@
 ;;   - Dag Brattli <dagb@cs.uit.no> for header-comment-strings additions.
 ;;   - Martin Trautmann <martintrautmann@gmx.de> for some C++ regexp fixes.
 
+;; This version hacked by Michael Hinz <michael@hinz.fdns.net> (the above
+;; address hasn't worked for 10 years btw.)
 
 ;;; code:
 
 (provide 'auto-header)
 
-(defconst header-version "1.0.2"
+(defconst header-version "1.0.3"
   "Version of `auto-header.el'.")
 
 ;;;
@@ -267,6 +269,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA."))
     (eiffel-mode     . ("--"   ""    "--"   "-"))
     (emacs-lisp-mode . (";"    ""    ";;"   ";"))
     (html-mode       . ("<!--" "-->" " ---" "-"))
+    (php-mode        . ("//"   ""    "//"   "="))
     (idl-mode        . ("//"   ""    "//"   "="))
     (java-mode       . ("/*"   "*/"  " *"   "*"))
     (jde-mode        . ("/*"   "*/"  " *"   "*"))
@@ -376,6 +379,8 @@ contains entries of the form:
     (beginning-of-buffer)
     (if (looking-at "^#!")
 	(forward-line 1))
+    (if (looking-at "^<\\\?php")
+	(forward-line 1))
     (if (not (equal header-initialized-mode major-mode))
 	(header-init t))
     (and (search-forward-regexp (concat "^" header-comment-begin-re 
@@ -432,6 +437,8 @@ forces the header to be inserted even if there already exists a header."
       (message "Header already exists.")
     (beginning-of-buffer)
     (if (looking-at "^#!")
+	(forward-line 1))
+    (if (looking-at "^<\\\?php")
 	(forward-line 1))
     (insert header-comment-begin 
 	    (make-string (- header-line-width (length header-comment-begin))
