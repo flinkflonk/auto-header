@@ -64,13 +64,16 @@
 ;;   - Martin Trautmann <martintrautmann@gmx.de> for some C++ regexp fixes.
 
 ;; This version hacked by Michael Hinz <michael@hinz.fdns.net> (the above
-;; address hasn't worked for 10 years btw.)
+;; address hasn't worked for 10 years btw.) (and this address doesn't work
+;; either, fdns.net went AWOL in 2010.)
+;;
+;; Hacked on some more by Michael Hinz <michael@hinz.no.eu.org>
 
 ;;; code:
 
 (provide 'auto-header)
 
-(defconst header-version "1.0.3"
+(defconst header-version "1.0.4"
   "Version of `auto-header.el'.")
 
 ;;;
@@ -134,6 +137,8 @@ valid types."
 			 (const :tag "Update counter" update)
 			 (const :tag "CVS identifier" cvsid)
 			 (const :tag "CVS log" cvslog)
+			 (const :tag "SVN identifier" svnid)
+			 (const :tag "GIT identifier" gitid)
 			 (const :tag "GNU General Public License " gpl)
 			 (const :tag "Blank line" blank)))
   :group 'auto-header)
