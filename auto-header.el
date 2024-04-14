@@ -269,7 +269,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA."))
 
 (defvar header-comment-strings
   ;;(major-mode      . (cstart cstop lipre fill))
-  '((c-mode          . ("/*"   "*/"  " *"   "*"))
+  '((ada-mode        . ("--"   ""    "--"   "" ))
+    (c-mode          . ("/*"   "*/"  " *"   "*"))
     (c++-mode        . ("//"   ""    "//"   "="))
     (eiffel-mode     . ("--"   ""    "--"   "-"))
     (emacs-lisp-mode . (";"    ""    ";;"   ";"))
